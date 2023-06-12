@@ -8,12 +8,14 @@ namespace AppliedActivity2.ViewModel
 	{
         public System.Collections.ObjectModel.ObservableCollection<Holiday> Holidays { get; } = new();
         HolidayService holidayService;
-        public Command GetHolidaysCommand { get; set; }
-        public HolidayViewModel(HolidayService holidayService)
+
+        public Command FetchHolidaysCommand { get; set; }
+
+        public HolidayViewModel()
         {
-            this.holidayService = holidayService;
-            GetHolidaysCommand = new Command(async () => await GetHoliday());
-            GetHoliday();
+            holidayService = new HolidayService();
+            FetchHolidaysCommand = new Command(async () => await GetHoliday());
+            FetchHolidaysCommand.Execute(null);
         }
 
 

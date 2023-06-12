@@ -5,11 +5,12 @@ public partial class MainPage : ContentPage
 {
 	
 
-	public MainPage(HolidayViewModel viewModel)
+	public MainPage()
 	{
 		InitializeComponent();
-		BindingContext = viewModel;
-	}
+        var viewModel = new HolidayViewModel();
+        BindingContext = viewModel;
+    }
 
 
 }
