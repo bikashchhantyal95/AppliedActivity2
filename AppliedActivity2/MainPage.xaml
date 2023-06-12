@@ -9,9 +9,20 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+            <Frame>
+                <HorizontalStackLayout>
+                <Label Text="Year" VerticalTextAlignment="Center"/> 
+                <Entry Placeholder="Enter the year"/>
+
+                <Label Text="Province" VerticalTextAlignment="Center"/> 
+                <Picker ItemsSource="{Binding Provinces}" SelectedItem="{Binding SelectedProvice}" ItemDisplayBinding="{Binding NameEn}" Title="Select a province"/>
+            </HorizontalStackLayout>
+            </Frame>
+            <Label Text="{Binding SelectedProvice.NameEn}"/>
+            <Label Text="Hello"/>
             <Button Text="Lead Holidays" Command="{Binding FetchHolidaysCommand}"/>
 
-            <ListView ItemsSource="{Binding Holidays}">
+            <ListView ItemsSource="{Binding FilteredHolidaysByProvince}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding NameEn}" Detail="{Binding Date}" />
