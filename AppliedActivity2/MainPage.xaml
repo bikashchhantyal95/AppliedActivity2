@@ -20,7 +20,7 @@
             </Frame>
             <Label Text="{Binding SelectedProvice.NameEn}"/>
             <Label Text="Hello"/>
-            <Button Text="Lead Holidays" Command="{Binding FetchHolidaysCommand}"/>
+            <Button Text="Load All Holidays" Command="{Binding FetchHolidaysCommand}"/>
 
             <ListView ItemsSource="{Binding FilteredHolidaysByProvince}">
                 <ListView.ItemTemplate>

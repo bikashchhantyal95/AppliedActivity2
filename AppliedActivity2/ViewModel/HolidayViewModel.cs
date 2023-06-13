@@ -12,6 +12,8 @@ namespace AppliedActivity2.ViewModel
         public ObservableCollection<Holiday> Holidays { get; } = new();
 
         public ObservableCollection<Holiday> FilteredHolidaysByProvince { get; } = new();
+
+        public ObservableCollection<Holiday> FilteredHolidaysByFederal { get; } = new();
         HolidayService holidayService;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -53,6 +55,8 @@ namespace AppliedActivity2.ViewModel
             if (Holidays.Count != 0)
                 Holidays.Clear();
 
+            Provinces.Add(new Province { Id = "All", NameEn = "All Provinces" });
+            
             foreach (var holiday in holidays)
             {
                 Holidays.Add(holiday);
@@ -64,7 +68,6 @@ namespace AppliedActivity2.ViewModel
                 }
 
             }
-
 
         }
 
